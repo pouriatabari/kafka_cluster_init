@@ -13,7 +13,7 @@ firewall-cmd --add-port={2181,9091,9092,9093,2888,3888}/tcp --permanent && firew
 ```
 yum install java java-devel
 ```
-5. You can now added the following line at the ==/etc/hosts== file (for each node):
+5. You can now added the following line at the `/etc/hosts` file (for each node):
 ```
 cat <<EOF>> /etc/hosts
 192.168.27.201  kafka-01
