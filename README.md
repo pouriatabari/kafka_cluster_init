@@ -147,15 +147,15 @@ server.3=kafka-03:2888:3888
 EOF
 ```
 9. Different echo lines can be made on each node:
-- node 1 (192.168.27.201):
+- node 1 `(192.168.27.201)`:
 ```
 echo '1' >> data/zookeeper/myid
 ```
-- node 2 (192.168.27.202):
+- node 2 `(192.168.27.202)`:
 ```
 echo '2' >> data/zookeeper/myid
 ```
-- node 3 (192.168.27.203):
+- node 3 `(192.168.27.203)`:
 ```
 echo '3' >> data/zookeeper/myid
 ```
