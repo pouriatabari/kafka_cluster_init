@@ -1,9 +1,9 @@
 # kafka install cluster on 3 node
 ## This document is based on the how to running a Kafka cluster on 3 node on different hosts.
 For this guide we running 3 nodes with name kafka-01, kafka-02, kafka-03 with the following IP-Address:
-: 192.168.27.201  kafka-01
-: 192.168.27.202  kafka-02
-: 192.168.27.203  kafka-03
+- 192.168.27.201  kafka-01
+- 192.168.27.202  kafka-02
+- 192.168.27.203  kafka-03
 
 1. At the first you need to open ports on OS firewall (for each node):
 ```
