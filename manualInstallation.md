@@ -608,7 +608,7 @@ jps
 ## Step-2: Create Systemd File For Handling Service
 
 ## Step-3: Create Topic
-1. create a Topic in one of the nodes( for example node-1(kafka-01) ):
+1. Create a Topic in one of the nodes( for example node-1(kafka-01) ):
 ```
 ./bin/kafka-topics.sh --create --topic test-01 --bootstrap-server 192.168.27.201:9091 --partitions 3 --replication-factor 2
 ```
@@ -616,7 +616,30 @@ jps
 >- `partitions` lets you decide how many brokers you want your data to be split between. Since we set up 3 brokers, we can set this option to 3.
 >- `replication-factor` describes how many copies of you data you want (in case one of the brokers goes down, you still have your data on the others). Since we set >this value to 2, our data will have two copies of itself on any two of the brokers.
 >- `bootstrap-server` points to the address of any one of our active Kafka brokers. Since all brokers know about each other through Zookeeper, it doesn’t matter which >one you choose.
+2. You can see list of available topic:
+```
+./bin/kafka-topics.sh --list --bootstrap-server kafka-01:9091
+```
+3. You can see details about a specific topic:
+
+```
+./bin/kafka-topics.sh --describe --topic test-01 --bootstrap-server kafka-01:9091
+
+```
 
 ## Step-4: Create Producer And Send Message To Kafka Cluster
-
+1. Create producer:
+```
+./bin/kafka-console-producer.sh --bootstrap-server kafka-01:9091 --topic test-01
+```
+after you insert aboce command in the CLI, you can write the message as producer. after that you must create the consumer by the following command.
+2. Create consumer and see the message:
+```
+./bin/kafka-console-consumer.sh --bootstrap-server kafka-01:9091 --topic test-01 --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true --from-beginning
+```
+or 
+```
+./bin/kafka-console-consumer.sh --bootstrap-server kafka-01:9091 --topic test-01 --from-beginning
+```
 ## Step-5: Create Consumer and recieving Messages
+
