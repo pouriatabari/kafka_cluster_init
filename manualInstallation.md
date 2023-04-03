@@ -613,9 +613,9 @@ jps
 ./bin/kafka-topics.sh --create --topic test-01 --bootstrap-server 192.168.27.201:9091 --partitions 3 --replication-factor 2
 ```
 >note:
->`partitions` lets you decide how many brokers you want your data to be split between. Since we set up 3 brokers, we can set this option to 3.
->`replication-factor` describes how many copies of you data you want (in case one of the brokers goes down, you still have your data on the others). Since we set this >value to 2, our data will have two copies of itself on any two of the brokers.
->`bootstrap-server` points to the address of any one of our active Kafka brokers. Since all brokers know about each other through Zookeeper, it doesn’t matter which >one you choose.
+>- `partitions` lets you decide how many brokers you want your data to be split between. Since we set up 3 brokers, we can set this option to 3.
+>- `replication-factor` describes how many copies of you data you want (in case one of the brokers goes down, you still have your data on the others). Since we set >this value to 2, our data will have two copies of itself on any two of the brokers.
+>- `bootstrap-server` points to the address of any one of our active Kafka brokers. Since all brokers know about each other through Zookeeper, it doesn’t matter which >one you choose.
 
 ## Step-4: Create Producer And Send Message To Kafka Cluster
 
