@@ -609,7 +609,9 @@ jps
 
 ## Step-3: Create Topic
 1. create a Topic in one of the nodes( for example node-1(kafka-01) ):
-`./bin/kafka-topics.sh --create --topic test-01 --bootstrap-server 192.168.27.201:9091 --partitions 3 --replication-factor 2`
+```
+./bin/kafka-topics.sh --create --topic test-01 --bootstrap-server 192.168.27.201:9091 --partitions 3 --replication-factor 2
+```
 >note:
 >`partitions` lets you decide how many brokers you want your data to be split between. Since we set up 3 brokers, we can set this option to 3.
 >`replication-factor` describes how many copies of you data you want (in case one of the brokers goes down, you still have your data on the others). Since we set this >value to 2, our data will have two copies of itself on any two of the brokers.
