@@ -1,6 +1,6 @@
 # kafka install cluster on 3 node
 This document is based on the how to running a Kafka cluster on 3 node on different hosts.
-### Step-1: Running Cluster
+## Step-1: Running Cluster
 For this guide we running 3 nodes with name kafka-01, kafka-02, kafka-03 with the following IP-Address:
 >- 192.168.27.201  kafka-01
 >- 192.168.27.202  kafka-02
@@ -605,10 +605,10 @@ EOF
 ```
 jps
 ```
-### Step-2: Create Systemd File For Handling Service
+## Step-2: Create Systemd File For Handling Service
 
-### Step-3: Create Topic
+## Step-3: Create Topic
 
-### Step-4: Create Producer And Send Message To Kafka Cluster
+## Step-4: Create Producer And Send Message To Kafka Cluster
 
-### Step-5: Create Consumer and recieving Messages
+## Step-5: Create Consumer and recieving Messages
