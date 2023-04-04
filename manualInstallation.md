@@ -633,6 +633,8 @@ jps
 ./bin/kafka-console-producer.sh --bootstrap-server kafka-01:9091 --topic test-01
 ```
 >after you insert aboce command in the CLI, you can write the message as producer. after that you must create the consumer by the following command.
+
+## Step-5: Create Consumer and recieving Messages
 2. Create consumer and see the message:
 ```
 ./bin/kafka-console-consumer.sh --bootstrap-server kafka-01:9091 --topic test-01 --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true --from-beginning
@@ -641,5 +643,3 @@ or
 ```
 ./bin/kafka-console-consumer.sh --bootstrap-server kafka-01:9091 --topic test-01 --from-beginning
 ```
-## Step-5: Create Consumer and recieving Messages
-
