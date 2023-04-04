@@ -30,13 +30,13 @@ yum -y install epel-release wget vim git curl net-tools yum-utils telnet && yum 
 ```
  wget https://downloads.apache.org/kafka/3.3.2/kafka_2.13-3.3.2.tgz
 ```
-6. after that, decompress downloaded file and change the name of the directory to kafka(for each node):
+6. After that, decompress downloaded file and change the name of the directory to kafka(for each node):
 ```
 tar -xvf kafka_*.tgz
 rm -f kafka_*.tgz
 mv -v kafka_* kafka
 ```
-7. go to the directory and create the data directory for zookeeper (for each node):
+7. Go to the directory and create the data directory for zookeeper (for each node):
 ```
 cd kafka
 mkdir -p data/zookeeper
@@ -77,7 +77,7 @@ server.2=kafka-02:2888:3888
 server.3=kafka-03:2888:3888
 EOF
 ```
-- for node 2 (192.168.27.202):
+- For node 2 (192.168.27.202):
 ```
 cat <<EOF>> config/zookeeper.properties
 # Licensed to the Apache Software Foundation (ASF) under one or more
@@ -160,12 +160,12 @@ echo '2' >> data/zookeeper/myid
 ```
 echo '3' >> data/zookeeper/myid
 ```
-10. craete user for broker and zookeeper on each node:
+10. Craete user for broker and zookeeper on each node:
 ```
 useradd -m kafka -s /usr/sbin/nologin
 useradd -m zookeeper -s /usr/sbin/nologin
 ```
-11. config file for brokers, so the name of `config/server.properties`:
+11. Config file for brokers, so the name of `config/server.properties`:
 - node 1 (192.168.27.201):
 ```
 cat <<EOF>> config/server.properties
@@ -601,7 +601,7 @@ EOF
 ./bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 ./bin/kafka-server-start.sh -daemon config/server.properties
 ```
-13. you can check the running cluster by typing `jps` command. after that you must see 2 parameters in the output. `QuorumPeerMain` for ensure that running cluster and `kafka` for ensure that running brokers:
+13. You can check the running cluster by typing `jps` command. after that you must see 2 parameters in the output. `QuorumPeerMain` for ensure that running cluster and `kafka` for ensure that running brokers:
 ```
 jps
 ```
@@ -628,14 +628,14 @@ jps
 ```
 
 ## Step-4: Create Producer And Send Message To Kafka Cluster
-1. Create producer:
+- Create producer:
 ```
 ./bin/kafka-console-producer.sh --bootstrap-server kafka-01:9091 --topic test-01
 ```
 >after you insert aboce command in the CLI, you can write the message as producer. after that you must create the consumer by the following command.
 
 ## Step-5: Create Consumer and recieving Messages
-2. Create consumer and see the message:
+- Create consumer and see the message:
 ```
 ./bin/kafka-console-consumer.sh --bootstrap-server kafka-01:9091 --topic test-01 --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true --from-beginning
 ```
