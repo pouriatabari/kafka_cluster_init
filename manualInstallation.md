@@ -606,7 +606,38 @@ EOF
 jps
 ```
 ## Step-2: Create Systemd File For Handling Service
+1. Change directory to `/etc/systemd/system` and create file which name is zookeeper.service and write the following text into this (for each node):
 
+```
+[Unit]
+Description=Zookeeper
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+LimitNOFILE=65536
+LimitNPROC=65536
+LimitMEMLOCK=infinity
+Restart=on-failure
+RestartSec=5s
+ExecStart=/root/kafka/bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+Environment="KAFKA_HEAP_OPTS=-Xmx3G -Xms3G -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/logs/mps -XX:+CrashOnOutOfMemoryError"
+
+[Install]
+WantedBy=multi-user.target
+```
+2. After that, you must reload system daemons:
+
+```
+systemctl daemon-reload
+```
+3. After reload daemon, you can start zookeeper as following command:
+```
+systemctl enable --now zookeeper
+```
 ## Step-3: Create Topic
 1. Create a Topic in one of the nodes( for example node-1(kafka-01) ):
 ```
