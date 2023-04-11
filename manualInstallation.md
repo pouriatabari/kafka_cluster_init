@@ -663,7 +663,7 @@ systemctl enable --now zookeeper
 ```
 ./bin/kafka-console-producer.sh --bootstrap-server kafka-01:9091 --topic test-01
 ```
->after you insert aboce command in the CLI, you can write the message as producer. after that you must create the consumer by the following command.
+>after you insert above command in the CLI, you can write the message as producer. after that you must create the consumer by the following command.
 
 ## Step-5: Create Consumer and recieving Messages
 - Create consumer and see the message:
